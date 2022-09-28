@@ -8,12 +8,13 @@ class Mz < Formula
 
     depends_on "cmake" => :build
     depends_on "rust" => :build
-
-    if OS.mac?
-        depends_on "libpq" => :build
-    elsif OS.linux?
-        depends_on "postgresql-client" => :build
-    end
+    depends_on "libpq" => :build
+    
+#     if OS.mac?
+#         depends_on "libpq" => :build
+#     elsif OS.linux?
+#         depends_on "postgresql-client" => :build
+#     end
 
     def install
         system "cargo", "install", "--locked",
